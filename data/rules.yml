@@ -1,0 +1,194 @@
+version: "3.1"
+
+rules:
+
+ # - rule: Greet at start of conversation
+ #   steps:
+ #     - action: action_session_start
+  #    - action: utter_greet
+  #    - action: action_listen
+
+
+  - rule: General fallback
+    steps:
+      - intent: nlu_fallback
+      - action: action_default_fallback
+
+  - rule: Handle fallback and ask for help
+    steps:
+      - action: action_default_fallback
+      - action: utter_ask_if_user_needs_help
+      - action: action_listen
+
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Respond to bot challenge
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  #- rule: Ask again for patient name if slots are empty
+  #  condition:
+  #    - slot_was_set:
+  #        - patient_first_name: null
+  #        - patient_last_name: null
+  #  steps:
+  #    - action: utter_clarify_patient_name
+  #    - action: action_listen
+
+
+
+  #- rule: Proceed after email is provided
+  #  steps:
+  #    - slot_was_set:
+  #        - caller_email: "{email}"
+   #   - action: utter_out_of_network_statement
+
+
+  - rule: Respond to thank
+    steps:
+      - intent: thank
+      - action: utter_thank
+
+  - rule: Respond to help
+    steps:
+      - intent: help
+      - action: utter_help
+
+  - rule: Respond to out of scope
+    steps:
+      - intent: out_of_scope
+      - action: utter_out_of_scope
+
+  - rule: Validate caller name
+    steps:
+    - active_loop: patient_intake_form
+    - slot_was_set:
+        - caller_first_name: "Sarah"
+        - caller_last_name: "Connor"
+    - action: utter_acknowledge_caller_name
+    - active_loop: null
+
+
+  - rule: Proceed after validating in-network insurance company
+    steps:
+    - action: action_validate_insurance_company
+    - slot_was_set:
+        - insurance_company: Regence
+    - action: utter_blank
+    - action: utter_ask_insurance_id
+
+
+
+
+ # - rule: Ask again for missing patient name
+ #   condition:
+ #   - slot_was_set:
+ #       - patient_first_name: null
+ #   - slot_was_set:
+ #       - patient_last_name: null
+ #   steps:
+ #   - action: utter_clarify_patient_name
+ #   - action: action_listen
+
+
+  #- rule: Collect insurance ID
+  #  steps:
+  #  - action: utter_ask_insurance_id
+  #  - intent: provide_insurance_id
+  #    entities:
+  #      - insurance_id_number: "123456789"
+  #  - slot_was_set:
+  #      - insurance_id_number: "123456789"
+  #  - action: utter_end_conversation
+
+
+
+ # - rule: Handle insurance company
+ #   steps:
+ #   - intent: provide_insurance_company
+ #   - slot_was_set:
+ #       - insurance_company: "Kaiser"
+ #   - action: utter_ask_insurance_id
+
+
+
+
+
+# Rules for Specific Questions:
+
+  - rule: Respond to cost question
+    steps:
+      - intent: ask_cost
+      - action: utter_ask_cost
+
+  - rule: Respond to adult services question
+    steps:
+      - intent: ask_adult
+      - action: utter_ask_adult
+
+  - rule: Respond to location and hours question
+    steps:
+      - intent: ask_location_and_hours
+      - action: utter_ask_location_and_hours
+
+  - rule: Respond to court-related question
+    steps:
+      - intent: ask_courts
+      - action: utter_ask_courts
+
+  - rule: Respond to assessments question
+    steps:
+      - intent: ask_assessments
+      - action: utter_ask_assessments
+
+  - rule: Respond to insurance query for Regence
+    steps:
+      - intent: ask_insurance_regence
+      - action: utter_ask_insurance_regence
+
+  - rule: Respond to insurance query for BCBS
+    steps:
+      - intent: ask_insurance_BCBS
+      - action: utter_ask_insurance_BCBS
+
+  - rule: Respond to insurance query for Kaiser
+    steps:
+      - intent: ask_insurance_kaiser
+      - action: utter_ask_insurance_kaiser
+
+  - rule: Respond to insurance query for Aetna
+    steps:
+      - intent: ask_insurance_aetna
+      - action: utter_ask_insurance_aetna
+
+  - rule: Respond to insurance query for Cigna
+    steps:
+      - intent: ask_insurance_cigna
+      - action: utter_ask_insurance_cigna
+
+  - rule: Respond to insurance query for United Healthcare
+    steps:
+      - intent: ask_insurance_united
+      - action: utter_ask_insurance_united
+
+  - rule: Respond to insurance query for Premera
+    steps:
+      - intent: ask_insurance_premera
+      - action: utter_ask_insurance_premera
+
+  - rule: Respond to insurance query for Apple Health
+    steps:
+      - intent: ask_insurance_apple
+      - action: utter_ask_insurance_apple
+
+  - rule: Respond to insurance query for DSHS
+    steps:
+      - intent: ask_insurance_DSHS
+      - action: utter_ask_insurance_DSHS
+
+
+

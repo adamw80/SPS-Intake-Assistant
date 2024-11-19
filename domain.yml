@@ -1,0 +1,343 @@
+version: "3.1"
+
+intents:
+ # - greet
+  - ask_services
+  - ask_group
+  - ask_autism
+  - ask_ADHD
+  - ask_anxiety
+  - ask_depression
+  - ask_suicide
+  - ask_insurance_regence
+  - ask_insurance_BCBS
+  - ask_insurance_kaiser
+  - ask_insurance_aetna
+  - ask_insurance_cigna
+  - ask_insurance_united
+  - ask_insurance_premera
+  - ask_insurance_apple
+  - ask_insurance_DSHS
+  - ask_cost
+  - ask_appointment_new_patient
+  - ask_appointment_scheduling
+  - ask_carly_autism
+  - ask_carly_ADHD
+  - ask_carly_anxiety
+  - ask_carly_depression
+  - ask_adult
+  - ask_location_and_hours
+  - ask_courts
+  - ask_assessments
+  - provide_patient_name
+  - provide_patient_dob
+  - provide_caller_name
+  - provide_caller_phone
+  - provide_caller_dob
+  - provide_relationship
+  - provide_insurance_company
+  - provide_insurance_id
+  - provide_email
+  - help
+  - out_of_scope
+  - goodbye
+  - bot_challenge
+  - thank
+
+
+
+
+
+entities:
+  - email
+  - patient_first_name
+  - patient_last_name
+  - contact_number
+  - patient_dob
+  - caller_first_name
+  - caller_last_name
+  - caller_phone_number
+  - caller_relationship
+  - caller_dob
+  - insurance_company
+  - insurance_id
+  - condition
+
+roles:
+  contact_number:
+    - phone
+
+  insurance_id:
+    - id
+
+
+
+slots:
+  patient_first_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: patient_first_name
+        role: patient
+        intent: provide_patient_name # was commented out
+
+  patient_last_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: patient_last_name
+        role: patient
+        intent: provide_patient_name # was commented out
+
+  patient_dob:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: patient_dob
+        role: patient
+        intent: provide_patient_dob # was commented out
+
+  caller_first_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: caller_first_name
+        role: caller
+        intent: provide_caller_name # was commented out
+
+  caller_last_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: caller_last_name
+        role: caller
+        intent: provide_caller_name # was commented out
+
+  contact_number:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: contact_number
+        role: phone    
+        intent: provide_caller_phone
+
+  caller_relationship:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: caller_relationship
+        intent: provide_relationship
+
+  caller_dob:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: caller_dob
+        role: caller  # was commented out
+        intent: provide_caller_dob
+        
+
+  insurance_company:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: insurance_company
+        intent: provide_insurance_company
+
+  insurance_id_number:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: insurance_id
+        role: id  # was commented out
+        intent: provide_insurance_id
+      
+  caller_email:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: email
+        intent: provide_email
+
+
+
+
+
+
+
+
+
+
+
+responses:
+
+
+  utter_greet:
+    - text: "Hello!, Do you have any questions about our services or becoming a new patient?"
+# --------------------  Starting Questions  ---------------------
+  utter_ask_services:
+    - text: "We offer a variety of services, including individual therapy, family therapy, parent coaching, group therapy, School consulting for IEP or 504 support."
+  utter_ask_group:
+    - text: "Our group therapy services vary throughout the year. At times we might have a kids group, an adolescents group, parents with autistic kids group, etc."
+  utter_ask_autism:
+    - text: "Yes! Spectrum Psychological Services works with kids on the autism spectrum. In fact most of our patients are on the autism spectrum and it is what Spectrum Psychological Service specializes in!"
+  utter_ask_ADHD:
+    - text: "Yes! Spectrum Psychological Services works with kids and adolescents with ADHD."
+  utter_ask_anxiety:
+    - text: "Yes! Spectrum Psychological Services works with kids and adolescents that are anxious."
+  utter_ask_depression:
+    - text: "Yes! Spectrum Psychological Services works with kids and adolescents with depression."
+  utter_ask_suicide:
+    - text: "If your child is actively suicidal right now and threatening themselves or others, you need to call 9-1-1 for help. If they have been suicidal and are safe, we can help."
+  utter_ask_appointment_new_patient:
+    - text: "For new patients, we will need to have your insurance information if you would like Spectrum Psychological Services to bill your insurance. We will also need a patient history form filled out. You can find the history form on our website at: https://spectrumpsychologicalservices.com/new-patients"
+  utter_ask_appointment_scheduling:
+    - text: "I’d be happy to help with that! Can you provide your preferred days and times for an intake with our provider. Please note that the very first appointment will be with just the parent(s) and the patient will not be there. We prefer that the first appointment is just to get some background information about the patient. We will check availability on our provider’s schedule and confirm if they are available on the date(s) and time(s) you requested."
+  utter_ask_carly_autism:
+    - text: "Yes! Carly works with kids on the autism spectrum. In fact most of her patients are on the autism spectrum and it is what Carly specializes in! She has worked with kids on the spectrum for over two decades."
+  utter_ask_carly_ADHD:
+    - text: "Yes! Carly works with kids and adolescents with ADHD."
+  utter_ask_carly_anxiety:
+    - text: "Yes! Carly works with kids and adolescents that are anxious."
+  utter_ask_carly_depression:
+    - text: "Yes! Carly works with kids and adolescents with depression."
+
+
+
+
+
+# -------------------- Intake Questions for Slots  ----------------
+  utter_ask_if_for_child:
+    - text: "Are you looking for services for your child? I can help by taking down their information to help with the new patient process. What is your child’s first and last name?"
+  utter_ask_patient_name:
+    - text: "What is your child's first and last name?"
+  utter_ask_patient_dob:
+    - text: "Great! What is {patient_first_name}'s date of birth?" 
+  utter_ask_caller_name:
+    - text: "Thank you. Now it’s your turn. What is your first name and last name?"
+  utter_ask_contact_number:
+    - text: "Perfect, and what is a good contact number for someone in our office to reach you?"
+  utter_ask_caller_dob:
+    - text: "Thanks {caller_first_name}, for insurance purposes, we will also need your date of birth."
+  utter_ask_caller_relationship:
+    - text: "Thank you {caller_first_name}. What is your relationship with the patient (mother/father/aunt/uncle/social worker/etc)?"
+  utter_ask_email:
+    - text: "Could you please provide your email address for further communication?"
+  utter_out_of_network_statement:
+    - text: "Thank you {caller_first_name}. Most of our patients want us to bill their insurance for services. What insurance do you have? We are out-of-network with all private insurance companies, but we can happily bill them for your behalf. This means that when {patient_first_name} comes in for therapy, we charge the service provided and then we bill your insurance. After that, your insurance reimburses you for those services."
+  utter_ask_insurance:
+    - text: "What insurance do you have {caller_first_name}?"
+  utter_ask_insurance_id:
+    - text: "On the front of the insurance card, there is a policy number or insurance ID number. Sometimes there's a 3-letter prefix as well. Could you provide the insurance ID number?"
+  utter_end_conversation:
+    - text: "Thank you {caller_first_name}. Someone from our staff will reach out to your insurance company and find out more about the coverage. Once we have the details, we'll reach out to you to discuss the next steps!"
+  
+
+
+  
+# ---------------------  General Questions  --------------------------
+  utter_ask_insurance_regence:
+    - text: "We work with all private insurance companies such as Regence, but we are considered out-of-network with Regence. This means that we can bill Regence and they will typically reimburse the insurance subscriber directly. Because Regence reimburses you directly or the insurance subscriber directly, we ask all of our patients to pay at time of service."
+  utter_ask_insurance_BCBS:
+    - text: "We work with all private insurance companies such as Blue Cross Blue Shield, but we are considered out-of-network with Blue Cross Blue Shield. This means that we can bill Blue Cross Blue Shield and they will typically reimburse the insurance subscriber directly. Because Blue Cross Blue Shield reimburses you directly or the insurance subscriber directly, we ask all of our patients to pay at time of service."
+  utter_ask_insurance_kaiser:
+    - text: "We work with all private insurance companies such as Kaiser, but we are considered out-of-network with Kaiser. This means that we can bill Kaiser and they will typically reimburse the insurance subscriber directly. Because Kaiser reimburses you directly or the insurance subscriber directly, we ask all of our patients to pay at time of service."
+  utter_ask_insurance_aetna:
+    - text: "We work with all private insurance companies such as Aetna, but we are considered out-of-network with Aetna. This means that we can bill Aetna and they will typically reimburse the insurance subscriber directly. Because Aetna reimburses you directly or the insurance subscriber directly, we ask all of our patients to pay at time of service."
+  utter_ask_insurance_cigna:
+    - text: "We work with all private insurance companies such as Cigna, but we are considered out-of-network with Cigna. This means that we can bill Cigna and they will typically reimburse the insurance subscriber directly. Because Cigna reimburses you directly or the insurance subscriber directly, we ask all of our patients to pay at time of service."
+  utter_ask_insurance_united:
+    - text: "We work with all private insurance companies such as United Healthcare, but we are considered out-of-network with United Healthcare. This means that we can bill United Healthcare and they will typically reimburse the insurance subscriber directly. Because United Healthcare reimburses you directly or the insurance subscriber directly, we ask all of our patients to pay at time of service."
+  utter_ask_insurance_premera:
+    - text: "We work with all private insurance companies such as Premera, but we are considered out-of-network with Premera. This means that we can bill Premera and they will typically reimburse the insurance subscriber directly. Because Premera reimburses you directly or the insurance subscriber directly, we ask all of our patients to pay at time of service."
+  utter_ask_insurance_apple:
+    - text: "Unfortunately we do not work with Apple insurance. We can still see the patient, but we will not be able to bill Apple insurance and just like our privately insurance patients, we will charge at time of service. The only difference is that we do not bill Apple insurance."
+  utter_ask_insurance_DSHS:
+    - text: "Unfortunately we do not work with DSHS. We can still see the patient, but we will not be able to bill DSHS and just like our privately insurance patients, we will charge at time of service. The only difference is that we do not bill DSHS."
+  utter_ask_cost:
+    - text: "Our normal treatment sessions are 45 minutes long for $175. The initial intake appointment is 60 minutes long and is $250"
+  utter_ask_adult:
+    - text: "No, unfortunately Spectrum Psychological Services only works with children and adolescents. If you are looking for a provider that is in-network that specializes in autism, we recommend that you contact your insurance provider to find services."
+  utter_ask_location_and_hours:
+    - text: "We’re located at 33305 1st Way South, Building B, suite 212, Federal Way. Our office hours are 2:00pm to 9:00pm Tuesdays through Fridays and 9:00am to 5:00pm on Saturdays."
+  utter_ask_courts:
+    - text: "Unfortunately we do not work with the court system, that is typically a different type of provider called a forensics therapist. To find a specialist that can work with you and the courts, we advise that you contact your insurance company to find someone within your network."
+  utter_ask_assessments:
+    - text: "Unfortunately we do not provide autism assessments. If you are looking to get an assessment, we recommend that you contact your insurance agency via their website or their 1-800 number on the back of your insurance card to find out who in your network can provide that service."
+
+
+# --------------------- Misc ---------------------
+  utter_goodbye:
+    - text: "Goodbye! Have a great day!"
+  utter_thanks:
+    - text: "Thank you for providing that information. We will get back to you shortly."
+  utter_iamabot:
+    - text: "I am an AI assistant here to help you!"
+  utter_ask_if_user_needs_help:
+    - text: "Is there anything else I can assist you with?"
+  utter_default:
+    - text: "I didn’t quite catch that. Could you please say that again?"
+  utter_clarify_patient_name:
+    - text: "I didn't quite get the patient's full name. Could you please provide the first and last name?"
+  utter_thank:
+    - text: "You're very welcome! If you have any more questions, feel free to ask."
+    - text: "Glad I could help! Let me know if there’s anything else you need."
+    - text: "You're welcome! I'm here to help if you have any further questions."
+  utter_help:
+    - text: "I can assist you with information about our services, scheduling an appointment, insurance inquiries, and more. Just let me know how I can help!"
+    - text: "I'm here to help with details about our services, therapist availability, insurance information, and patient intake. What would you like to know?"
+    - text: "You can ask me about our services, insurance we work with, appointment scheduling, and more. How can I assist you today?"
+  utter_out_of_scope:
+    - text: "I'm sorry, but I’m not able to assist with that specific request. Could you ask about something related to our services, or let me know how else I may assist?"
+    - text: "I’m not sure I can help with that, but feel free to ask me anything related to our services, appointments, or insurance."
+    - text: "I'm here to help with information about our clinic, appointments, and services. Could you try rephrasing your question or ask about something specific to our services?"
+  utter_blank:
+    - text: "   "  
+
+
+
+forms:
+  patient_intake_form:
+    ignored_intents: 
+      - thank
+      - help  
+    required_slots:
+      - patient_first_name
+      - patient_last_name
+      - patient_dob
+      - caller_first_name
+      - caller_last_name
+      - caller_relationship
+      - contact_number
+      - insurance_company
+      - insurance_id_number
+
+
+
+actions:
+   # - action_custom_fallback
+    - action_ask_contact_details
+    - action_check_appointment_availability
+   # - action_provide_insurance_info
+    - action_validate_insurance_company
+   # - action_session_start
+
+
+
+
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

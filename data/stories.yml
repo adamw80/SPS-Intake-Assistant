@@ -1,0 +1,1148 @@
+version: "3.1"
+
+
+stories:
+# ------ Ask Services ------
+  - story: Guided Patient Intake (Services Inquiry)
+    steps:
+      - action: utter_greet
+      - intent: ask_services
+      - action: utter_ask_services
+      - action: utter_blank # blank
+
+      - action: utter_ask_if_for_child
+      - intent: provide_patient_name
+        entities:
+          - patient_first_name: "Kevin"
+            role: patient
+          - patient_last_name: "Bacon"
+            role: patient
+      - slot_was_set:
+          - patient_first_name: "Kevin"
+          - patient_last_name: "Bacon"
+      - action: utter_ask_patient_dob
+      - intent: provide_patient_dob
+        entities:
+          - patient_dob: "01/23/2010"
+            role: patient
+      - slot_was_set:
+          - patient_dob: "01/23/2010"
+      - action: utter_ask_caller_name
+      - intent: provide_caller_name
+        entities:
+          - caller_first_name: "Sarah"
+            role: caller
+          - caller_last_name: "Connor"
+            role: caller
+      - slot_was_set:
+          - caller_first_name: "Sarah"
+          - caller_last_name: "Connor"
+      - action: utter_ask_contact_number
+      - intent: provide_caller_phone
+        entities:
+          - contact_number: "274-849-0391"
+      - slot_was_set:
+          - contact_number: "274-849-0391"
+      - action: utter_ask_caller_relationship
+      - intent: provide_relationship
+        entities:
+          - caller_relationship: "mother"
+      - slot_was_set:
+          - caller_relationship: "mother"
+      - action: utter_ask_caller_dob
+      - intent: provide_caller_dob
+        entities:
+          - caller_dob: "May 1st, 1980"
+            role: caller
+      - slot_was_set:
+          - caller_dob: "May 1st, 1980"
+      - action: utter_ask_email
+      - intent: provide_email
+        entities:
+          - email: "sarah.connor@example.com"
+      - slot_was_set:
+          - caller_email: "sarah.connor@example.com"
+      - action: utter_out_of_network_statement
+      - action: utter_blank # blank
+      - intent: provide_insurance_company
+        entities:
+          - insurance_company: "Aetna"
+      - slot_was_set:
+          - insurance_company: "Aetna"
+      - action: action_validate_insurance_company
+      - action: utter_blank # blank
+      - action: utter_ask_insurance_id
+      - intent: provide_insurance_id
+        entities:
+          - insurance_id: "89747437908"
+      - slot_was_set:
+          - insurance_id_number: "89747437908"
+      - action: utter_end_conversation
+
+
+
+#     ------ Ask Group ------
+  - story: Guided Patient Intake (Group Services Inquiry)
+    steps:
+      - action: utter_greet
+      - intent: ask_group
+      - action: utter_ask_group
+      - action: utter_blank # blank
+
+      - action: utter_ask_if_for_child
+      - intent: provide_patient_name
+        entities:
+          - patient_first_name: "Kevin"
+            role: patient
+          - patient_last_name: "Bacon"
+            role: patient
+      - slot_was_set:
+          - patient_first_name: "Kevin"
+          - patient_last_name: "Bacon"
+      - action: utter_ask_patient_dob
+      - intent: provide_patient_dob
+        entities:
+          - patient_dob: "01/23/2010"
+            role: patient
+      - slot_was_set:
+          - patient_dob: "01/23/2010"
+      - action: utter_ask_caller_name
+      - intent: provide_caller_name
+        entities:
+          - caller_first_name: "Sarah"
+            role: caller
+          - caller_last_name: "Connor"
+            role: caller
+      - slot_was_set:
+          - caller_first_name: "Sarah"
+          - caller_last_name: "Connor"
+      - action: utter_ask_contact_number
+      - intent: provide_caller_phone
+        entities:
+          - contact_number: "274-849-0391"
+      - slot_was_set:
+          - contact_number: "274-849-0391"
+      - action: utter_ask_caller_relationship
+      - intent: provide_relationship
+        entities:
+          - caller_relationship: "mother"
+      - slot_was_set:
+          - caller_relationship: "mother"
+      - action: utter_ask_caller_dob
+      - intent: provide_caller_dob
+        entities:
+          - caller_dob: "May 1st, 1980"
+            role: caller
+      - slot_was_set:
+          - caller_dob: "May 1st, 1980"
+      - action: utter_ask_email
+      - intent: provide_email
+        entities:
+          - email: "sarah.connor@example.com"
+      - slot_was_set:
+          - caller_email: "sarah.connor@example.com"
+      - action: utter_out_of_network_statement
+      - action: utter_blank # blank
+      - intent: provide_insurance_company
+        entities:
+          - insurance_company: "Aetna"
+      - slot_was_set:
+          - insurance_company: "Aetna"
+      - action: action_validate_insurance_company
+      - action: utter_blank # blank
+      - action: utter_ask_insurance_id
+      - intent: provide_insurance_id
+        entities:
+          - insurance_id: "89747437908"
+      - slot_was_set:
+          - insurance_id_number: "89747437908"
+      - action: utter_end_conversation
+
+
+
+#  ----- Ask Autism ------
+  - story: Guided Patient Intake (Autism Inquiry)
+    steps:
+      - action: utter_greet
+      - intent: ask_autism
+        entities:
+          - condition: "autism"
+            role: "general_autism"
+      - action: utter_ask_autism
+      - action: utter_blank # blank
+
+      - action: utter_ask_if_for_child
+      - intent: provide_patient_name
+        entities:
+          - patient_first_name: "Kevin"
+            role: patient
+          - patient_last_name: "Bacon"
+            role: patient
+      - slot_was_set:
+          - patient_first_name: "Kevin"
+          - patient_last_name: "Bacon"
+      - action: utter_ask_patient_dob
+      - intent: provide_patient_dob
+        entities:
+          - patient_dob: "01/23/2010"
+            role: patient
+      - slot_was_set:
+          - patient_dob: "01/23/2010"
+      - action: utter_ask_caller_name
+      - intent: provide_caller_name
+        entities:
+          - caller_first_name: "Sarah"
+            role: caller
+          - caller_last_name: "Connor"
+            role: caller
+      - slot_was_set:
+          - caller_first_name: "Sarah"
+          - caller_last_name: "Connor"
+      - action: utter_ask_contact_number
+      - intent: provide_caller_phone
+        entities:
+          - contact_number: {"role": "phone"}
+      - slot_was_set:
+          - contact_number: "253-654-3210"
+    #  - action: utter_acknowledge_phone
+
+
+      - action: utter_ask_caller_relationship
+      - intent: provide_relationship
+        entities:
+          - caller_relationship: "mother"
+      - slot_was_set:
+          - caller_relationship: "mother"
+      - action: utter_ask_caller_dob
+      - intent: provide_caller_dob
+        entities:
+          - caller_dob: "May 1st, 1980"
+            role: caller
+      - slot_was_set:
+          - caller_dob: "May 1st, 1980"
+      - action: utter_ask_email
+      - intent: provide_email
+        entities:
+          - email: "sarah.connor@example.com"
+      - slot_was_set:
+          - caller_email: "sarah.connor@example.com"
+      - action: utter_out_of_network_statement
+      - action: utter_blank # blank
+      - intent: provide_insurance_company
+        entities:
+          - insurance_company: "Aetna"
+      - slot_was_set:
+          - insurance_company: "Aetna"
+      - action: action_validate_insurance_company
+      - action: utter_blank # blank
+      - action: utter_ask_insurance_id
+      - intent: provide_insurance_id
+        entities:
+          - insurance_id: {"role": "id"}
+      - slot_was_set:
+          - insurance_id_number: "ZLF-8768654-01"
+
+
+      - action: utter_end_conversation
+
+
+
+#     ------ Ask ADHD -------
+  - story: Guided Patient Intake (ADHD Inquiry)
+    steps:
+      - action: utter_greet
+      - intent: ask_services
+        entities:
+          - condition: "ADHD"
+      - action: utter_ask_ADHD
+      - action: utter_blank # blank
+
+      - action: utter_ask_if_for_child
+      - intent: provide_patient_name
+        entities:
+          - patient_first_name: "Kevin"
+            role: patient
+          - patient_last_name: "Bacon"
+            role: patient
+      - slot_was_set:
+          - patient_first_name: "Kevin"
+          - patient_last_name: "Bacon"
+      - action: utter_ask_patient_dob
+      - intent: provide_patient_dob
+        entities:
+          - patient_dob: "01/23/2010"
+            role: patient
+      - slot_was_set:
+          - patient_dob: "01/23/2010"
+      - action: utter_ask_caller_name
+      - intent: provide_caller_name
+        entities:
+          - caller_first_name: "Sarah"
+            role: caller
+          - caller_last_name: "Connor"
+            role: caller
+      - slot_was_set:
+          - caller_first_name: "Sarah"
+          - caller_last_name: "Connor"
+      - action: utter_ask_contact_number
+      - intent: provide_caller_phone
+        entities:
+          - contact_number: "274-849-0391"
+      - slot_was_set:
+          - contact_number: "274-849-0391"
+      - action: utter_ask_caller_relationship
+      - intent: provide_relationship
+        entities:
+          - caller_relationship: "mother"
+      - slot_was_set:
+          - caller_relationship: "mother"
+      - action: utter_ask_caller_dob
+      - intent: provide_caller_dob
+        entities:
+          - caller_dob: "May 1st, 1980"
+            role: caller
+      - slot_was_set:
+          - caller_dob: "May 1st, 1980"
+      - action: utter_ask_email
+      - intent: provide_email
+        entities:
+          - email: "sarah.connor@example.com"
+      - slot_was_set:
+          - caller_email: "sarah.connor@example.com"
+      - action: utter_out_of_network_statement
+      - action: utter_blank # blank
+      - intent: provide_insurance_company
+        entities:
+          - insurance_company: "Aetna"
+      - slot_was_set:
+          - insurance_company: "Aetna"
+      - action: action_validate_insurance_company
+      - action: utter_blank # blank
+      - action: utter_ask_insurance_id
+      - intent: provide_insurance_id
+        entities:
+          - insurance_id: "89747437908"
+      - slot_was_set:
+          - insurance_id_number: "89747437908"
+      - action: utter_end_conversation
+
+
+
+
+#    -------- Ask Anxiety ---------
+  - story: Guided Patient Intake (Anxiety Inquiry)
+    steps:
+      - action: utter_greet
+      - intent: ask_anxiety
+      - action: utter_ask_anxiety
+      - action: utter_blank # blank
+
+      - action: utter_ask_if_for_child
+      - intent: provide_patient_name
+        entities:
+          - patient_first_name: "Kevin"
+            role: patient
+          - patient_last_name: "Bacon"
+            role: patient
+      - slot_was_set:
+          - patient_first_name: "Kevin"
+          - patient_last_name: "Bacon"
+      - action: utter_ask_patient_dob
+      - intent: provide_patient_dob
+        entities:
+          - patient_dob: "01/23/2010"
+            role: patient
+      - slot_was_set:
+          - patient_dob: "01/23/2010"
+      - action: utter_ask_caller_name
+      - intent: provide_caller_name
+        entities:
+          - caller_first_name: "Sarah"
+            role: caller
+          - caller_last_name: "Connor"
+            role: caller
+      - slot_was_set:
+          - caller_first_name: "Sarah"
+          - caller_last_name: "Connor"
+      - action: utter_ask_contact_number
+      - intent: provide_caller_phone
+        entities:
+          - contact_number: "274-849-0391"
+      - slot_was_set:
+          - contact_number: "274-849-0391"
+      - action: utter_ask_caller_relationship
+      - intent: provide_relationship
+        entities:
+          - caller_relationship: "mother"
+      - slot_was_set:
+          - caller_relationship: "mother"
+      - action: utter_ask_caller_dob
+      - intent: provide_caller_dob
+        entities:
+          - caller_dob: "May 1st, 1980"
+            role: caller
+      - slot_was_set:
+          - caller_dob: "May 1st, 1980"
+      - action: utter_ask_email
+      - intent: provide_email
+        entities:
+          - email: "sarah.connor@example.com"
+      - slot_was_set:
+          - caller_email: "sarah.connor@example.com"
+      - action: utter_out_of_network_statement
+      - action: utter_blank # blank
+      - intent: provide_insurance_company
+        entities:
+          - insurance_company: "Aetna"
+      - slot_was_set:
+          - insurance_company: "Aetna"
+      - action: action_validate_insurance_company
+      - action: utter_blank # blank
+      - action: utter_ask_insurance_id
+      - intent: provide_insurance_id
+        entities:
+          - insurance_id: "89747437908"
+      - slot_was_set:
+          - insurance_id_number: "89747437908"
+      - action: utter_end_conversation
+
+
+
+
+#    -------- Ask  Depression ---------
+  - story: Guided Patient Intake (Depression Inquiry)
+    steps:
+      - action: utter_greet
+      - intent: ask_depression
+      - action: utter_ask_depression
+      - action: utter_blank # blank
+
+      - action: utter_ask_if_for_child
+      - intent: provide_patient_name
+        entities:
+          - patient_first_name: "Kevin"
+            role: patient
+          - patient_last_name: "Bacon"
+            role: patient
+      - slot_was_set:
+          - patient_first_name: "Kevin"
+          - patient_last_name: "Bacon"
+      - action: utter_ask_patient_dob
+      - intent: provide_patient_dob
+        entities:
+          - patient_dob: "01/23/2010"
+            role: patient
+      - slot_was_set:
+          - patient_dob: "01/23/2010"
+      - action: utter_ask_caller_name
+      - intent: provide_caller_name
+        entities:
+          - caller_first_name: "Sarah"
+            role: caller
+          - caller_last_name: "Connor"
+            role: caller
+      - slot_was_set:
+          - caller_first_name: "Sarah"
+          - caller_last_name: "Connor"
+      - action: utter_ask_contact_number
+      - intent: provide_caller_phone
+        entities:
+          - contact_number: "274-849-0391"
+      - slot_was_set:
+          - contact_number: "274-849-0391"
+      - action: utter_ask_caller_relationship
+      - intent: provide_relationship
+        entities:
+          - caller_relationship: "mother"
+      - slot_was_set:
+          - caller_relationship: "mother"
+      - action: utter_ask_caller_dob
+      - intent: provide_caller_dob
+        entities:
+          - caller_dob: "May 1st, 1980"
+            role: caller
+      - slot_was_set:
+          - caller_dob: "May 1st, 1980"
+      - action: utter_ask_email
+      - intent: provide_email
+        entities:
+          - email: "sarah.connor@example.com"
+      - slot_was_set:
+          - caller_email: "sarah.connor@example.com"
+      - action: utter_out_of_network_statement
+      - action: utter_blank # blank
+      - intent: provide_insurance_company
+        entities:
+          - insurance_company: "Aetna"
+      - slot_was_set:
+          - insurance_company: "Aetna"
+      - action: action_validate_insurance_company
+      - action: utter_blank # blank
+      - action: utter_ask_insurance_id
+      - intent: provide_insurance_id
+        entities:
+          - insurance_id: "89747437908"
+      - slot_was_set:
+          - insurance_id_number: "89747437908"
+      - action: utter_end_conversation
+
+
+
+#    -------- Ask Suicide  ---------
+  - story: Guided Patient Intake (Suicide Inquiry)
+    steps:
+      - action: utter_greet
+      - intent: ask_suicide
+      - action: utter_ask_suicide
+      - action: utter_blank # blank
+
+      - action: utter_ask_if_for_child
+      - intent: provide_patient_name
+        entities:
+          - patient_first_name: "Kevin"
+            role: patient
+          - patient_last_name: "Bacon"
+            role: patient
+      - slot_was_set:
+          - patient_first_name: "Kevin"
+          - patient_last_name: "Bacon"
+      - action: utter_ask_patient_dob
+      - intent: provide_patient_dob
+        entities:
+          - patient_dob: "01/23/2010"
+            role: patient
+      - slot_was_set:
+          - patient_dob: "01/23/2010"
+      - action: utter_ask_caller_name
+      - intent: provide_caller_name
+        entities:
+          - caller_first_name: "Sarah"
+            role: caller
+          - caller_last_name: "Connor"
+            role: caller
+      - slot_was_set:
+          - caller_first_name: "Sarah"
+          - caller_last_name: "Connor"
+      - action: utter_ask_contact_number
+      - intent: provide_caller_phone
+        entities:
+          - contact_number: "274-849-0391"
+      - slot_was_set:
+          - contact_number: "274-849-0391"
+      - action: utter_ask_caller_relationship
+      - intent: provide_relationship
+        entities:
+          - caller_relationship: "mother"
+      - slot_was_set:
+          - caller_relationship: "mother"
+      - action: utter_ask_caller_dob
+      - intent: provide_caller_dob
+        entities:
+          - caller_dob: "May 1st, 1980"
+            role: caller
+      - slot_was_set:
+          - caller_dob: "May 1st, 1980"
+      - action: utter_ask_email
+      - intent: provide_email
+        entities:
+          - email: "sarah.connor@example.com"
+      - slot_was_set:
+          - caller_email: "sarah.connor@example.com"
+      - action: utter_out_of_network_statement
+      - action: utter_blank # blank
+      - intent: provide_insurance_company
+        entities:
+          - insurance_company: "Aetna"
+      - slot_was_set:
+          - insurance_company: "Aetna"
+      - action: action_validate_insurance_company
+      - action: utter_blank # blank
+      - action: utter_ask_insurance_id
+      - intent: provide_insurance_id
+        entities:
+          - insurance_id: "89747437908"
+      - slot_was_set:
+          - insurance_id_number: "89747437908"
+      - action: utter_end_conversation
+
+
+
+
+
+
+
+
+#    -------- Ask New Patients  ---------
+  - story: Guided Patient Intake (New Patient Appointment Inquiry)
+    steps:
+      - action: utter_greet
+      - intent: ask_appointment_new_patient
+      - action: utter_ask_appointment_new_patient
+      - action: utter_blank # blank
+
+      - action: utter_ask_if_for_child
+      - intent: provide_patient_name
+        entities:
+          - patient_first_name: "Kevin"
+            role: patient
+          - patient_last_name: "Bacon"
+            role: patient
+      - slot_was_set:
+          - patient_first_name: "Kevin"
+          - patient_last_name: "Bacon"
+      - action: utter_ask_patient_dob
+      - intent: provide_patient_dob
+        entities:
+          - patient_dob: "01/23/2010"
+            role: patient
+      - slot_was_set:
+          - patient_dob: "01/23/2010"
+      - action: utter_ask_caller_name
+      - intent: provide_caller_name
+        entities:
+          - caller_first_name: "Sarah"
+            role: caller
+          - caller_last_name: "Connor"
+            role: caller
+      - slot_was_set:
+          - caller_first_name: "Sarah"
+          - caller_last_name: "Connor"
+      - action: utter_ask_contact_number
+      - intent: provide_caller_phone
+        entities:
+          - contact_number: "274-849-0391"
+      - slot_was_set:
+          - contact_number: "274-849-0391"
+      - action: utter_ask_caller_relationship
+      - intent: provide_relationship
+        entities:
+          - caller_relationship: "mother"
+      - slot_was_set:
+          - caller_relationship: "mother"
+      - action: utter_ask_caller_dob
+      - intent: provide_caller_dob
+        entities:
+          - caller_dob: "May 1st, 1980"
+            role: caller
+      - slot_was_set:
+          - caller_dob: "May 1st, 1980"
+      - action: utter_ask_email
+      - intent: provide_email
+        entities:
+          - email: "sarah.connor@example.com"
+      - slot_was_set:
+          - caller_email: "sarah.connor@example.com"
+      - action: utter_out_of_network_statement
+      - action: utter_blank # blank
+      - intent: provide_insurance_company
+        entities:
+          - insurance_company: "Aetna"
+      - slot_was_set:
+          - insurance_company: "Aetna"
+      - action: action_validate_insurance_company
+      - action: utter_blank # blank
+      - action: utter_ask_insurance_id
+      - intent: provide_insurance_id
+        entities:
+          - insurance_id: "89747437908"
+      - slot_was_set:
+          - insurance_id_number: "89747437908"
+      - action: utter_end_conversation
+
+
+
+
+
+
+#    -------- Ask New Appointment  ---------
+  - story: Guided Patient Intake (Appointment Scheduling Inquiry)
+    steps:
+      - action: utter_greet
+      - intent: ask_appointment_scheduling
+      - action: utter_ask_appointment_scheduling
+      - action: utter_blank # blank
+
+      - action: utter_ask_if_for_child
+      - intent: provide_patient_name
+        entities:
+          - patient_first_name: "Kevin"
+            role: patient
+          - patient_last_name: "Bacon"
+            role: patient
+      - slot_was_set:
+          - patient_first_name: "Kevin"
+          - patient_last_name: "Bacon"
+      - action: utter_ask_patient_dob
+      - intent: provide_patient_dob
+        entities:
+          - patient_dob: "01/23/2010"
+            role: patient
+      - slot_was_set:
+          - patient_dob: "01/23/2010"
+      - action: utter_ask_caller_name
+      - intent: provide_caller_name
+        entities:
+          - caller_first_name: "Sarah"
+            role: caller
+          - caller_last_name: "Connor"
+            role: caller
+      - slot_was_set:
+          - caller_first_name: "Sarah"
+          - caller_last_name: "Connor"
+      - action: utter_ask_contact_number
+      - intent: provide_caller_phone
+        entities:
+          - contact_number: "274-849-0391"
+      - slot_was_set:
+          - contact_number: "274-849-0391"
+      - action: utter_ask_caller_relationship
+      - intent: provide_relationship
+        entities:
+          - caller_relationship: "mother"
+      - slot_was_set:
+          - caller_relationship: "mother"
+      - action: utter_ask_caller_dob
+      - intent: provide_caller_dob
+        entities:
+          - caller_dob: "May 1st, 1980"
+            role: caller
+      - slot_was_set:
+          - caller_dob: "May 1st, 1980"
+      - action: utter_ask_email
+      - intent: provide_email
+        entities:
+          - email: "sarah.connor@example.com"
+      - slot_was_set:
+          - caller_email: "sarah.connor@example.com"
+      - action: utter_out_of_network_statement
+      - action: utter_blank # blank
+      - intent: provide_insurance_company
+        entities:
+          - insurance_company: "Aetna"
+      - slot_was_set:
+          - insurance_company: "Aetna"
+      - action: action_validate_insurance_company
+      - action: utter_blank # blank
+      - action: utter_ask_insurance_id
+      - intent: provide_insurance_id
+        entities:
+          - insurance_id: "89747437908"
+      - slot_was_set:
+          - insurance_id_number: "89747437908"
+      - action: utter_end_conversation
+
+
+
+
+#    -------- Ask Carly Autism  ---------
+  - story: Guided Patient Intake (Carly Autism Inquiry)
+    steps:
+      - action: utter_greet
+      - intent: ask_carly_autism
+      - action: utter_ask_carly_autism
+      - action: utter_blank # blank
+
+      - action: utter_ask_if_for_child
+      - intent: provide_patient_name
+        entities:
+          - patient_first_name: "Kevin"
+            role: patient
+          - patient_last_name: "Bacon"
+            role: patient
+      - slot_was_set:
+          - patient_first_name: "Kevin"
+          - patient_last_name: "Bacon"
+      - action: utter_ask_patient_dob
+      - intent: provide_patient_dob
+        entities:
+          - patient_dob: "01/23/2010"
+            role: patient
+      - slot_was_set:
+          - patient_dob: "01/23/2010"
+      - action: utter_ask_caller_name
+      - intent: provide_caller_name
+        entities:
+          - caller_first_name: "Sarah"
+            role: caller
+          - caller_last_name: "Connor"
+            role: caller
+      - slot_was_set:
+          - caller_first_name: "Sarah"
+          - caller_last_name: "Connor"
+      - action: utter_ask_contact_number
+      - intent: provide_caller_phone
+        entities:
+          - contact_number: "274-849-0391"
+      - slot_was_set:
+          - contact_number: "274-849-0391"
+      - action: utter_ask_caller_relationship
+      - intent: provide_relationship
+        entities:
+          - caller_relationship: "mother"
+      - slot_was_set:
+          - caller_relationship: "mother"
+      - action: utter_ask_caller_dob
+      - intent: provide_caller_dob
+        entities:
+          - caller_dob: "May 1st, 1980"
+            role: caller
+      - slot_was_set:
+          - caller_dob: "May 1st, 1980"
+      - action: utter_ask_email
+      - intent: provide_email
+        entities:
+          - email: "sarah.connor@example.com"
+      - slot_was_set:
+          - caller_email: "sarah.connor@example.com"
+      - action: utter_out_of_network_statement
+      - action: utter_blank # blank
+      - intent: provide_insurance_company
+        entities:
+          - insurance_company: "Aetna"
+      - slot_was_set:
+          - insurance_company: "Aetna"
+      - action: action_validate_insurance_company
+      - action: utter_blank # blank
+      - action: utter_ask_insurance_id
+      - intent: provide_insurance_id
+        entities:
+          - insurance_id: "89747437908"
+      - slot_was_set:
+          - insurance_id_number: "89747437908"
+      - action: utter_end_conversation
+
+
+
+
+
+#    -------- Ask Carly ADHD  ---------
+  - story: Guided Patient Intake (Carly ADHD Inquiry)
+    steps:
+      - action: utter_greet
+      - intent: ask_carly_ADHD
+      - action: utter_ask_carly_ADHD
+      - action: utter_blank # blank
+
+      - action: utter_ask_if_for_child
+      - intent: provide_patient_name
+        entities:
+          - patient_first_name: "Kevin"
+            role: patient
+          - patient_last_name: "Bacon"
+            role: patient
+      - slot_was_set:
+          - patient_first_name: "Kevin"
+          - patient_last_name: "Bacon"
+      - action: utter_ask_patient_dob
+      - intent: provide_patient_dob
+        entities:
+          - patient_dob: "01/23/2010"
+            role: patient
+      - slot_was_set:
+          - patient_dob: "01/23/2010"
+      - action: utter_ask_caller_name
+      - intent: provide_caller_name
+        entities:
+          - caller_first_name: "Sarah"
+            role: caller
+          - caller_last_name: "Connor"
+            role: caller
+      - slot_was_set:
+          - caller_first_name: "Sarah"
+          - caller_last_name: "Connor"
+      - action: utter_ask_contact_number
+      - intent: provide_caller_phone
+        entities:
+          - contact_number: "274-849-0391"
+      - slot_was_set:
+          - contact_number: "274-849-0391"
+      - action: utter_ask_caller_relationship
+      - intent: provide_relationship
+        entities:
+          - caller_relationship: "mother"
+      - slot_was_set:
+          - caller_relationship: "mother"
+      - action: utter_ask_caller_dob
+      - intent: provide_caller_dob
+        entities:
+          - caller_dob: "May 1st, 1980"
+            role: caller
+      - slot_was_set:
+          - caller_dob: "May 1st, 1980"
+      - action: utter_ask_email
+      - intent: provide_email
+        entities:
+          - email: "sarah.connor@example.com"
+      - slot_was_set:
+          - caller_email: "sarah.connor@example.com"
+      - action: utter_out_of_network_statement
+      - action: utter_blank # blank
+      - intent: provide_insurance_company
+        entities:
+          - insurance_company: "Aetna"
+      - slot_was_set:
+          - insurance_company: "Aetna"
+      - action: action_validate_insurance_company
+      - action: utter_blank # blank
+      - action: utter_ask_insurance_id
+      - intent: provide_insurance_id
+        entities:
+          - insurance_id: "89747437908"
+      - slot_was_set:
+          - insurance_id_number: "89747437908"
+      - action: utter_end_conversation
+
+
+
+
+
+
+
+#    -------- Ask Carly Anxiety  ---------
+  - story: Guided Patient Intake (Carly Anxiety Inquiry)
+    steps:
+      - action: utter_greet
+      - intent: ask_carly_anxiety
+      - action: utter_ask_carly_anxiety
+      - action: utter_blank # blank
+
+      - action: utter_ask_if_for_child
+      - intent: provide_patient_name
+        entities:
+          - patient_first_name: "Kevin"
+            role: patient
+          - patient_last_name: "Bacon"
+            role: patient
+      - slot_was_set:
+          - patient_first_name: "Kevin"
+          - patient_last_name: "Bacon"
+      - action: utter_ask_patient_dob
+      - intent: provide_patient_dob
+        entities:
+          - patient_dob: "01/23/2010"
+            role: patient
+      - slot_was_set:
+          - patient_dob: "01/23/2010"
+      - action: utter_ask_caller_name
+      - intent: provide_caller_name
+        entities:
+          - caller_first_name: "Sarah"
+            role: caller
+          - caller_last_name: "Connor"
+            role: caller
+      - slot_was_set:
+          - caller_first_name: "Sarah"
+          - caller_last_name: "Connor"
+      - action: utter_ask_contact_number
+      - intent: provide_caller_phone
+        entities:
+          - contact_number: "274-849-0391"
+      - slot_was_set:
+          - contact_number: "274-849-0391"
+      - action: utter_ask_caller_relationship
+      - intent: provide_relationship
+        entities:
+          - caller_relationship: "mother"
+      - slot_was_set:
+          - caller_relationship: "mother"
+      - action: utter_ask_caller_dob
+      - intent: provide_caller_dob
+        entities:
+          - caller_dob: "May 1st, 1980"
+            role: caller
+      - slot_was_set:
+          - caller_dob: "May 1st, 1980"
+      - action: utter_ask_email
+      - intent: provide_email
+        entities:
+          - email: "sarah.connor@example.com"
+      - slot_was_set:
+          - caller_email: "sarah.connor@example.com"
+      - action: utter_out_of_network_statement
+      - action: utter_blank # blank
+      - intent: provide_insurance_company
+        entities:
+          - insurance_company: "Aetna"
+      - slot_was_set:
+          - insurance_company: "Aetna"
+      - action: action_validate_insurance_company
+      - action: utter_blank # blank
+      - action: utter_ask_insurance_id
+      - intent: provide_insurance_id
+        entities:
+          - insurance_id: "89747437908"
+      - slot_was_set:
+          - insurance_id_number: "89747437908"
+      - action: utter_end_conversation
+
+
+
+
+
+
+#    -------- Ask Carly Depression  ---------
+  - story: Guided Patient Intake (Carly Depression Inquiry)
+    steps:
+      - action: utter_greet
+      - intent: ask_carly_depression
+      - action: utter_ask_carly_depression
+      - action: utter_blank # blank
+
+      - action: utter_ask_if_for_child
+      - intent: provide_patient_name
+        entities:
+          - patient_first_name: "Kevin"
+            role: patient
+          - patient_last_name: "Bacon"
+            role: patient
+      - slot_was_set:
+          - patient_first_name: "Kevin"
+          - patient_last_name: "Bacon"
+      - action: utter_ask_patient_dob
+      - intent: provide_patient_dob
+        entities:
+          - patient_dob: "01/23/2010"
+            role: patient
+      - slot_was_set:
+          - patient_dob: "01/23/2010"
+      - action: utter_ask_caller_name
+      - intent: provide_caller_name
+        entities:
+          - caller_first_name: "Sarah"
+            role: caller
+          - caller_last_name: "Connor"
+            role: caller
+      - slot_was_set:
+          - caller_first_name: "Sarah"
+          - caller_last_name: "Connor"
+      - action: utter_ask_contact_number
+      - intent: provide_caller_phone
+        entities:
+          - contact_number: "274-849-0391"
+      - slot_was_set:
+          - contact_number: "274-849-0391"
+      - action: utter_ask_caller_relationship
+      - intent: provide_relationship
+        entities:
+          - caller_relationship: "mother"
+      - slot_was_set:
+          - caller_relationship: "mother"
+      - action: utter_ask_caller_dob
+      - intent: provide_caller_dob
+        entities:
+          - caller_dob: "May 1st, 1980"
+            role: caller
+      - slot_was_set:
+          - caller_dob: "May 1st, 1980"
+      - action: utter_ask_email
+      - intent: provide_email
+        entities:
+          - email: "sarah.connor@example.com"
+      - slot_was_set:
+          - caller_email: "sarah.connor@example.com"
+      - action: utter_out_of_network_statement
+      - action: utter_blank # blank
+      - intent: provide_insurance_company
+        entities:
+          - insurance_company: "Aetna"
+      - slot_was_set:
+          - insurance_company: "Aetna"
+      - action: action_validate_insurance_company
+      - action: utter_blank # blank
+      - action: utter_ask_insurance_id
+      - intent: provide_insurance_id
+        entities:
+          - insurance_id: "89747437908"
+      - slot_was_set:
+          - insurance_id_number: "89747437908"
+      - action: utter_end_conversation
+
+
+
+
+
+
+
+# ------------------ Misc Stories -------------------
+
+  - story: Handle out-of-network insurance company
+    steps:
+      - intent: provide_insurance_company
+      - action: action_validate_insurance_company
+      - slot_was_set:
+          - insurance_company: null
+      - action: utter_out_of_network_statement
+
+
+
+
+  - story: Handle in-network insurance company
+    steps:
+      - intent: provide_insurance_company
+        entities:
+          - insurance_company: "Regence"
+      - action: action_validate_insurance_company
+      - action: utter_blank # blank
+      - slot_was_set:
+          - insurance_company: "Regence"
+      - action: utter_ask_insurance_id
+      - intent: provide_insurance_id
+        entities:
+          - insurance_id: "123456789"
+      - slot_was_set:
+          - insurance_id_number: "123456789"
+      - action: utter_end_conversation
+
+
+
+  - story: Collect Insurance ID
+    steps:
+      - action: utter_ask_insurance_id
+      - intent: provide_insurance_id
+        entities:
+          - insurance_id: "123456789"
+      - slot_was_set:
+          - insurance_id_number: "123456789"
+      - action: utter_end_conversation
+
+
+
+
+  #- story: Handle out-of-network insurance
+  #  steps:
+  #  - intent: provide_insurance_company
+  #    entities:
+  #      - insurance_company: "Apple Insurance"
+  #  - action: action_validate_insurance_company
+  #  - slot_was_set:
+  #      - insurance_company: null
+  #  - action: utter_out_of_network_statement
+  #  - intent: provide_insurance_company
+  #    entities:
+  #      - insurance_company: "Aetna"
+  #  - slot_was_set:
+  #      - insurance_company: "Aetna"
+  #  - action: utter_ask_insurance_id
+
+
+
+
+  - story: Fallback
+    steps:
+      - intent: nlu_fallback
+      - action: action_default_fallback
+  
+  - story: Thank user
+    steps:
+      - intent: thank
+      - action: utter_thank
+
+  - story: Provide help information
+    steps:
+      - intent: help
+      - action: utter_help
+
+  - story: Handle out of scope
+    steps:
+      - intent: out_of_scope
+      - action: utter_out_of_scope
