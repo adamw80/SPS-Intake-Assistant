@@ -12,6 +12,7 @@ RUN python -m venv /app/venv
 
 # Activate the virtual environment and install dependencies
 RUN /app/venv/bin/pip install --no-cache-dir --upgrade pip && \
+    /app/venv/bin/pip install --no-cache-dir websockets==10.4 && \
     /app/venv/bin/pip install --no-cache-dir -r requirements.txt
 
 # Set the PATH to use the virtual environment
