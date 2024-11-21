@@ -33,4 +33,5 @@ EXPOSE 5005
 EXPOSE 5060
 
 # Start Supervisor to run Rasa services
-CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+
