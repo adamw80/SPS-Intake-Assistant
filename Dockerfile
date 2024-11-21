@@ -22,5 +22,11 @@ ENV PATH="/app/venv/bin:$PATH"
 EXPOSE 5005
 EXPOSE 5060
 
-# Start both Rasa server and Action server
-CMD ["bash", "-c", "rasa run --enable-api --cors '*' & rasa run actions --port 5060"]
+# Install supervisord
+RUN apt-get update && apt-get install -y supervisor
+
+# Copy the supervisord configuration file
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Start supervisord
+CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
