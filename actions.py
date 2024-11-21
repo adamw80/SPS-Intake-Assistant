@@ -129,7 +129,6 @@ class ValidateInsuranceCompany(Action):
 
         if insurance in in_network_companies:
             dispatcher.utter_message(text=f"We are out-of-network with {insurance} but we can still bill them on your behalf. This means that you pay at the time of service, and your insurance reimburses you after.") 
- We're out-of-network with all private insurance companies, but we can bill them for you on your behalf. 
             return [SlotSet("insurance_company", insurance)]
         elif insurance in out_of_network_companies:
             dispatcher.utter_message(text=f"Unfortunately, we do not work with {insurance}. You will have to contact them to find a provider that is in their network.")
