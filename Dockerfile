@@ -19,6 +19,9 @@ RUN /app/venv/bin/pip install --no-cache-dir --upgrade pip && \
 USER root
 RUN apt-get update && apt-get install -y supervisor
 
+# Create log directory with correct permissions
+RUN mkdir -p /app/logs && chown 1001:1001 /app/logs
+
 # Switch back to non-root user
 USER 1001
 
