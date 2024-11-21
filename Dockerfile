@@ -15,18 +15,19 @@ RUN /app/venv/bin/pip install --no-cache-dir --upgrade pip && \
     /app/venv/bin/pip install --no-cache-dir websockets==10.4 && \
     /app/venv/bin/pip install --no-cache-dir -r requirements.txt
 
-# Set the PATH to use the virtual environment
-ENV PATH="/app/venv/bin:$PATH"
+# Switch to root to install supervisor
+USER root
+RUN apt-get update && apt-get install -y supervisor
+
+# Switch back to non-root user
+USER 1001
+
+# Copy supervisor configuration
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Expose ports for Rasa server and Action server
 EXPOSE 5005
 EXPOSE 5060
 
-# Install supervisord
-RUN apt-get update && apt-get install -y supervisor
-
-# Copy the supervisord configuration file
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-# Start supervisord
+# Start Supervisor to run Rasa services
 CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
