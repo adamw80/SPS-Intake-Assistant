@@ -7,9 +7,8 @@ WORKDIR /app
 # Copy all files from the repository to the container
 COPY . /app
 
-# Upgrade pip and install dependencies using the --user flag
-RUN pip install --user --no-cache-dir --upgrade pip && \
-    pip install --user --no-cache-dir -r requirements.txt
+# Install dependencies without upgrading pip
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose ports for Rasa server and Action server
 EXPOSE 5005
