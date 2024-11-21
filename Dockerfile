@@ -7,8 +7,9 @@ WORKDIR /app
 # Copy all files from the repository to the container
 COPY . /app
 
-# Install Python dependencies for custom actions
-RUN pip install --no-cache-dir -r requirements.txt
+# Upgrade pip and install dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
 # Expose ports for Rasa server and Action server
 EXPOSE 5005
