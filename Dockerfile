@@ -11,9 +11,15 @@ COPY . /app
 RUN python -m venv /app/venv
 
 # Activate the virtual environment and install dependencies
-RUN /app/venv/bin/pip install --no-cache-dir --upgrade pip && \
-    /app/venv/bin/pip install --no-cache-dir websockets==10.4 && \
-    /app/venv/bin/pip install --no-cache-dir -r requirements.txt
+#RUN /app/venv/bin/pip install --no-cache-dir --upgrade pip && \
+#    /app/venv/bin/pip install --no-cache-dir websockets==10.4 && \
+#    /app/venv/bin/pip install --no-cache-dir -r requirements.txt
+
+# Install dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir websockets==10.4 && \
+    pip install --no-cache-dir -r requirements.txt
+
 
 # Switch to root to install supervisor
 USER root
